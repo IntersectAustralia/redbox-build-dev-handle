@@ -7,12 +7,31 @@
     },
 
     "transformer": {
-        "curation": ["vital"],
+        "curation": ["handle"],
         "metadata": ["jsonVelocity"]
     },
     "curation": {
         "neverPublish": false,
         "alreadyCurated": false
+    },
+
+    "transformerOverrides": {
+        "handle": {
+            "source": "workflow.metadata",
+            "description": {
+                "seperator": "",
+                "paths": [
+                    ["formData", "title"],
+                ]
+            },
+
+            "output": {
+                "path": ["metadata"],
+                "field": "rdf:resource"
+            },
+            "template": "[[INC]]",
+            "urlTemplate": "${server.url.base}published/detail/[[OID]]"
+        }
     },
 
     "indexer": {
