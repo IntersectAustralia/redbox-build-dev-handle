@@ -107,7 +107,7 @@
     "curation": {
         "curationEmailAddress": "${admin.email}",
         "curationRequiresConfirmation": false,
-        "pidProperty": "vitalHandle",
+        "pidProperty": "handle",
         "pidType": "handle",
         "mintBroker": "${mint.amq.broker}",
 
