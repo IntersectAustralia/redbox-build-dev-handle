@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox-handle-curation-demo</artifactId>
-    <version>1.5.2</version>
+    <version>1.5.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>ReDBox - Handle Curation Demo</name>
     <parent>
@@ -291,7 +291,7 @@
     <scm>
        <url>https://github.com/redbox-mint/redbox-build-dev-handle.git</url>
        <developerConnection>scm:git:https://github.com/redbox-mint/redbox-build-dev-handle.git</developerConnection>
-      <tag>redbox-handle-curation-demo-1.5.2</tag>
+      <tag>HEAD</tag>
     </scm>
     <repositories>
         <repository>
