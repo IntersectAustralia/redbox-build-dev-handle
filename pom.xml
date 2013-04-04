@@ -3,17 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox-handle-curation-demo</artifactId>
-    <version>1.5.3-SNAPSHOT</version>
+    <version>1.6</version>
     <packaging>pom</packaging>
     <name>ReDBox - Handle Curation Demo</name>
     <parent>
         <groupId>com.googlecode.redbox-mint</groupId>
         <artifactId>redbox</artifactId>
-        <version>1.5.2</version>
+        <version>1.6</version>
     </parent>
     <properties>
         <!-- Used in build -->
-        <redbox.version>1.5.2</redbox.version>
+        <redbox.version>1.6</redbox.version>
 
         <!-- Runtime values, will replace placeholders
              in config and control scripts -->
