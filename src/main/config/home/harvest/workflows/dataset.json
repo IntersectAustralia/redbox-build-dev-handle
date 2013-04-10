@@ -1,4 +1,10 @@
 {
+    "presentation-settings": {
+       "hide-funding-body-label" : "false",
+       "use-ands-doi" : "false",
+       "use-embargoes" : "true",
+       "use-technical-metadata" : "true"
+     },
     "harvester": {
         "type": "workflow-harvester",
         "workflow-harvester": {
