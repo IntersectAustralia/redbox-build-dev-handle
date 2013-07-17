@@ -34,7 +34,7 @@
 		<packaging>pom</packaging>
         <!-- Control scripts try to auto-detect proxy. Use this value if you
              want Java to specifically exclude certain hosts from proxying. -->
-		<non.proxy.hosts>${redboxServer.hostname}</non.proxy.hosts>
+		<non.proxy.hosts>localhost</non.proxy.hosts>
     </properties>
     <dependencies>
         <!-- ReDBox Core - We want to explicitly define versions here because
