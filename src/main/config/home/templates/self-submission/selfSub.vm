@@ -1,11 +1,3 @@
-#macro(Collaborators $map $key $order)
-	#set($queryKey = "person.${key}")
-	#set ($value = $map.get($queryKey))
-	#if ("$!value" != "")
-	"dc:contributor.locrel:clb.${order}.foaf:Agent.${key}": "$value",
-	#end
-#end
-
 #macro(Grants $map $key $order)
 	#set($queryKey = "${key}")
 	#set ($value = $map.get($queryKey))
@@ -149,9 +141,6 @@
 #end
 
 
-
-
-
 #foreach( $key in ["dc:type.rdf:PlainLiteral", "self-submission.field.dc-identifier.redboxdmpt-doirequest.1",  "dc:subject.vivo:keyword.1.rdf:PlainLiteral",
 "dc:license.rdf:Alt.skos:prefLabel","dc:license.rdf:Alt.dc:identifier","dc:identifier.rdf:PlainLiteral","dc:identifier.dc:type.rdf:PlainLiteral",
 "dc:identifier.dc:type.skos:prefLabel","dc:identifier.redbox:origin",
@@ -167,23 +156,32 @@
 	#end
 #end
 
-#mapTo("locrel:rth.foaf:Person.foaf:title" "dc:creator.foaf:Person.foaf:title")
-#mapTo("locrel:rth.foaf:Person.foaf:givenName" "dc:creator.foaf:Person.foaf:givenName")
-#mapTo("locrel:rth.foaf:Person.foaf:familyName" "dc:creator.foaf:Person.foaf:familyName")
-#mapTo("locrel:rth.foaf:Person.foaf:email" "dc:creator.foaf:Person.foaf:email")
-#mapTo("locrel:rth.foaf:Person.dc:identifier" "dc:creator.foaf:Person.dc:identifier")
+## Principal Investigators
+#mapTo("dc:creator.foaf:Person.foaf:title" "dc:creator.foaf:Person.foaf:title")
+#mapTo("dc:creator.foaf:Person.foaf:givenName" "dc:creator.foaf:Person.foaf:givenName")
+#mapTo("dc:creator.foaf:Person.foaf:familyName" "dc:creator.foaf:Person.foaf:familyName")
+#mapTo("dc:creator.foaf:Person.foaf:email" "dc:creator.foaf:Person.foaf:email")
+#mapTo("dc:creator.foaf:Person.dc:identifier" "dc:creator.foaf:Person.dc:identifier")
 #mapTo("dc:RightsStatement" "dc:accessRights.dc:RightsStatement.skos:prefLabel")
-#set($cList = $util.getList($item, "locrel:clb.foaf:Person"))
-#set($order = 1)
-#if ($cList.size() > 0)
-	#foreach($key in $cList.keySet())
-		#set($slot = $cList.get($key))
-		#Collaborators($slot "foaf:title" $order)
-		#Collaborators($slot "foaf:givenName" $order)
-		#Collaborators($slot "foaf:familyName" $order)
-		#Collaborators($slot "foaf:email" $order)
-		#Collaborators($slot "dc:identifier" $order)
-		#set($order = $order + 1)
+
+## Collaborators
+#set($index = 1)
+#foreach($index in  [1..10000])
+	#if (! $util.get($item, "dc:contributor.locrel:clb.${index}.foaf:Agent.dc:identifier"))
+		#break
+	#end
+
+	#Collaborators("foaf:title" $index)
+	#Collaborators("foaf:givenName" $index)
+	#Collaborators("foaf:familyName" $index)
+	#Collaborators("foaf:email" $index)
+	#Collaborators("dc:identifier" $index)
+#end
+
+#macro(Collaborators $key $index)
+	#set ($value = $util.get($item, "dc:contributor.locrel:clb.${index}.foaf:Agent.${key}"))
+	#if ("$!value" != "")
+		"dc:contributor.locrel:clb.${index}.foaf:Agent.${key}": "$value",
 	#end
 #end
 
