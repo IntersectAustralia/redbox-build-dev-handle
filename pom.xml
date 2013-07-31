@@ -21,8 +21,8 @@
         <server.port>9000</server.port>
         <amq.port>9101</amq.port>
         <amq.stomp.port>9102</amq.stomp.port>
-		<server.url.base>http://${redboxServer.hostname}:${server.port}/redbox/</server.url.base>
-		<mint.proxy.server>http://${mintServer.hostname}:9001</mint.proxy.server>
+		<server.url.base>${redboxServer.url.base}</server.url.base>
+		<mint.proxy.server>${mintServer.url.base}</mint.proxy.server>
 		<mint.amq.broker>tcp://${mintAmqBroker.hostname}:9201</mint.amq.broker>
 		<dir.home>${project.home}/home</dir.home>
 		<dir.portal>${project.home}/portal</dir.portal>
@@ -81,6 +81,8 @@
 				<redboxServer.hostname>localhost</redboxServer.hostname>
 				<mintServer.hostname>localhost</mintServer.hostname>
 				<mintAmqBroker.hostname>localhost</mintAmqBroker.hostname>
+				<mintServer.url.base>http://${mintServer.hostname}:9001/mint/</mintServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}:${server.port}/redbox/</redboxServer.url.base>
 				<app.location.windows>c:/tf2/redbox</app.location.windows>
 				<app.location.linux>${project.home}</app.location.linux>
             </properties>
@@ -124,6 +126,8 @@
 				<redboxServer.hostname>localhost</redboxServer.hostname>
 				<mintServer.hostname>localhost</mintServer.hostname>
 				<mintAmqBroker.hostname>localhost</mintAmqBroker.hostname>
+				<mintServer.url.base>http://${mintServer.hostname}:9001/mint/</mintServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}:${server.port}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
 
@@ -140,6 +144,8 @@
 				<mintServer.hostname>ic2-redbox-vm.intersect.org.au</mintServer.hostname>
 				<redboxServer.hostname>ic2-redbox-vm.intersect.org.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>ic2-redbox-vm.intersect.org.au</mintAmqBroker.hostname>
+				<mintServer.url.base>http://${mintServer.hostname}:9001/mint/</mintServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}:${server.port}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
 
@@ -156,6 +162,8 @@
 				<mintServer.hostname>ic2-ms22-staging1-vm.intersect.org.au</mintServer.hostname>
 				<redboxServer.hostname>ic2-ms22-staging1-vm.intersect.org.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>ic2-ms22-staging1-vm.intersect.org.au</mintAmqBroker.hostname>
+				<mintServer.url.base>http://${mintServer.hostname}/mint/</mintServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
 
@@ -172,6 +180,8 @@
 				<mintServer.hostname>test-redbox.research.uts.edu.au</mintServer.hostname>
 				<redboxServer.hostname>test-redbox.research.uts.edu.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>test-redbox.research.uts.edu.au</mintAmqBroker.hostname>
+				<mintServer.url.base>http://${mintServer.hostname}/mint/</mintServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
 
@@ -188,6 +198,8 @@
 				<mintServer.hostname>redbox.research.uts.edu.au</mintServer.hostname>
 				<redboxServer.hostname>redbox.research.uts.edu.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>redbox.research.uts.edu.au</mintAmqBroker.hostname>
+				<mintServer.url.base>http://${mintServer.hostname}/mint/</mintServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
 
