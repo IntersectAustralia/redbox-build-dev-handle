@@ -73,6 +73,12 @@
             <artifactId>plugin-transformer-handle</artifactId>
             <version>${redbox.version}</version>
         </dependency>
+
+		<dependency>
+			<groupId>fascinator-shibboleth</groupId>
+			<artifactId>fascinator-shibboleth</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
     <profiles>
         <profile>
@@ -245,6 +251,26 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+
+					<!-- Shibboleth Resources -->
+					<execution>
+						<id>unpack-shib-conf</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.home}</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>fascinator-shibboleth</groupId>
+									<artifactId>fascinator-shibboleth</artifactId>
+									<classifier>redbox-config</classifier>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
                 </executions>
             </plugin>
 
