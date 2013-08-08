@@ -169,7 +169,7 @@
 				<redboxServer.hostname>ic2-ms22-staging1-vm.intersect.org.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>ic2-ms22-staging1-vm.intersect.org.au</mintAmqBroker.hostname>
 				<mintServer.url.base>http://${mintServer.hostname}</mintServer.url.base>
-				<redboxServer.url.base>http://${redboxServer.hostname}/redbox/</redboxServer.url.base>
+				<redboxServer.url.base>http://${redboxServer.hostname}:${server.port}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
 
