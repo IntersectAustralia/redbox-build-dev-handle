@@ -42,6 +42,7 @@
 ,"dc:license.dc:identifier"
 ,"dc:license.skos:prefLabel"
 ,"dc:subject.anzsrc:toa.rdf:resource","dc:subject.anzsrc:toa.skos:prefLabel"
+,"redbox:retentionPeriod.dc:date"
 ])
 	#set($v = $util.get($item, $key))
 	#if ($v) "$key": "$!v",
