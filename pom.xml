@@ -150,7 +150,7 @@
 				<mintServer.hostname>ic2-redbox-vm.intersect.org.au</mintServer.hostname>
 				<redboxServer.hostname>ic2-redbox-vm.intersect.org.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>ic2-redbox-vm.intersect.org.au</mintAmqBroker.hostname>
-				<mintServer.url.base>https://${mintServer.hostname}:9001</mintServer.url.base>
+				<mintServer.url.base>https://${mintServer.hostname}</mintServer.url.base>
 				<redboxServer.url.base>https://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
