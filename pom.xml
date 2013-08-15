@@ -150,7 +150,7 @@
 				<mintServer.hostname>ic2-redbox-vm.intersect.org.au</mintServer.hostname>
 				<redboxServer.hostname>ic2-redbox-vm.intersect.org.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>ic2-redbox-vm.intersect.org.au</mintAmqBroker.hostname>
-				<mintServer.url.base>http://${mintServer.hostname}</mintServer.url.base>
+				<mintServer.url.base>https://${mintServer.hostname}</mintServer.url.base>
 				<redboxServer.url.base>https://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
@@ -168,7 +168,7 @@
 				<mintServer.hostname>ic2-ms22-staging1-vm.intersect.org.au</mintServer.hostname>
 				<redboxServer.hostname>ic2-ms22-staging1-vm.intersect.org.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>ic2-ms22-staging1-vm.intersect.org.au</mintAmqBroker.hostname>
-				<mintServer.url.base>http://${mintServer.hostname}</mintServer.url.base>
+				<mintServer.url.base>https://${mintServer.hostname}</mintServer.url.base>
 				<redboxServer.url.base>https://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
@@ -186,7 +186,7 @@
 				<mintServer.hostname>test-redbox.research.uts.edu.au</mintServer.hostname>
 				<redboxServer.hostname>test-redbox.research.uts.edu.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>test-redbox.research.uts.edu.au</mintAmqBroker.hostname>
-				<mintServer.url.base>http://${mintServer.hostname}</mintServer.url.base>
+				<mintServer.url.base>https://${mintServer.hostname}</mintServer.url.base>
 				<redboxServer.url.base>https://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
@@ -204,7 +204,7 @@
 				<mintServer.hostname>redbox.research.uts.edu.au</mintServer.hostname>
 				<redboxServer.hostname>redbox.research.uts.edu.au</redboxServer.hostname>
 				<mintAmqBroker.hostname>redbox.research.uts.edu.au</mintAmqBroker.hostname>
-				<mintServer.url.base>http://${mintServer.hostname}</mintServer.url.base>
+				<mintServer.url.base>https://${mintServer.hostname}</mintServer.url.base>
 				<redboxServer.url.base>https://${redboxServer.hostname}/redbox/</redboxServer.url.base>
 			</properties>
 		</profile>
