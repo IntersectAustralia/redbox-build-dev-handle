@@ -119,6 +119,10 @@
 				]
 				,
 				[
+					["auEduPersonSharedToken", "is", "nEk1Op_Dckfga81qUUpNMD3AX88"]
+				]
+				,
+				[
 					["Shib-Identity-Provider", "is", "https://idptest.intersect.org.au/idp/shibboleth"],
 					["eduPersonAffiliation", "is", "staff"]
 				]
