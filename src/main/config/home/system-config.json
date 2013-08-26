@@ -59,17 +59,68 @@
 		"SimpleShibbolethRoleManager":{
 			"reviewer":[
 				[
-					["affiliation", "is", "member@edu.au"]
+					["auEduPersonSharedToken", "is", "5pgKpM8-mxw2QTi9jSVgbobQe4c"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "OjB_85bSX4yBXyQDZ7Ry_U5soN8"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "nEk1Op_Dckfga81qUUpNMD3AX88"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "nEk1Op_Dckfga81qUUpNMD3AX88"]
 				]
 			],
 			"admin":[
 				[
-					["Shib-Identity-Provider", "is", "https://test-aaf-login.uts.edu.au/idp/shibboleth"]
+					["auEduPersonSharedToken", "is", "5pgKpM8-mxw2QTi9jSVgbobQe4c"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "OjB_85bSX4yBXyQDZ7Ry_U5soN8"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "XqMBJT6CScmguPkk893vrDepYuk"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "nEk1Op_Dckfga81qUUpNMD3AX88"]
+				]
+			],
+			"librarian":[
+				[
+					["auEduPersonSharedToken", "is", "5pgKpM8-mxw2QTi9jSVgbobQe4c"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "z0lo1gkbDXFMcBQpf3EqHkog9IY"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "SPQ3DSww4-B3D8kPvk4AVzlNHnA"]
+				]
+				,
+				[
+					["auEduPersonSharedToken", "is", "nEk1Op_Dckfga81qUUpNMD3AX88"]
 				]
 			],
 			"researcher":[
 				[
-					["Shib-Identity-Provider", "is", "https://idptest.intersect.org.au/idp/shibboleth"]
+					["auEduPersonSharedToken", "is", "dnxiXK7FEMq1UGv2TWmMJnlVC4w"]
+				]
+				,
+				[
+					["Shib-Identity-Provider", "is", "https://test-aaf-login.uts.edu.au/idp/shibboleth"],
+					["eduPersonAffiliation", "is", "staff"]
+				]
+				,
+				[
+					["Shib-Identity-Provider", "is", "https://idptest.intersect.org.au/idp/shibboleth"],
+					["eduPersonAffiliation", "is", "staff"]
 				]
 			]
 		}
@@ -509,6 +560,12 @@
                         "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/vital.script",
                         "timing": "0 0/15 * * * ?"
                     },
+					{
+						"name": "transitionWorkflow",
+						"type": "external",
+						"url": "${server.url.base}/default/hkjobs/transitionWorkflow.ajax",
+						"timing": "0 0/15 * * * ?"
+					},
                     {
                         "name": "alerts-poll",
                         "type": "external",
