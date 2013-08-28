@@ -12,17 +12,12 @@
             {
                 "name": "Researcher Record",
                 "from-workflow-id": "self-submission",
-                "from-workflow-step": "self-submission-submitted",
+                "from-workflow-stage": "self-submission-submitted",
                 "to-workflow-id": "dataset",
-                "to-workflow-step": "metadata-review"
-            },
-            {
-                "name": "Researcher Record",
-                "from-workflow-id": "simple",
-                "from-workflow-step": "investigation",
-                "to-workflow-id": "dataset",
-                "to-workflow-step": "final-review"
-            }
+                "to-workflow-stage": "metadata-review",
+                "to-workflow-page-title": "Metadata Record",
+         		"to-workflow-label": "Metadata Review"
+            }           
         ]
     },
     "configured": true,
@@ -216,7 +211,7 @@
         ]
     },
     "andsDoi": {
-        "apiKey": "1234",
+        "apiKey": "TESTd652186962d02890e3a6f0caa3b19e177dd29ccc",
         "apiBaseUrl": "https://services.ands.org.au/doi/1.1/",
         "doiProperty": "andsDoi",
         "security": {
@@ -391,10 +386,10 @@
     "transformerDefaults": {
 		"handle": {
 			"id": "handle",
-			"namingAuthority": "11057.DEV/ADMIN",
+			"namingAuthority": "11057",
 			"privateKeyPath": "${fascinator.home}/handle/admpriv.bin",
-			"passPhrase": "password",
-			"useIncrements": true,
+			"passPhrase": "none",
+			"useIncrements": false,
 			"incrementingFile": "${fascinator.home}/handle/index.txt",
 			"publishedDomain": "hdl.handle.net"
 		},
@@ -420,6 +415,16 @@
             "checkForTFMETAProperty": "true",
             "TFMETAPropertyName": "copyTFPackage",
             "TFMETAPropertyValue": "dmpToSelfSub",
+            "clearPropertyOnTransform": "true",
+            "transformSource": "true"
+        },
+        "selfSubtoDataset": {
+            "id": "jsonVelocity",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/selfsub-dataset/selfSubToDataset.vm",
+            "checkForTFMETAProperty": "true",
+            "TFMETAPropertyName": "workflowTransitioned",
+            "TFMETAPropertyValue": "true",
             "clearPropertyOnTransform": "true",
             "transformSource": "true"
         }
@@ -638,6 +643,57 @@
             "xml": "${fascinator.home}/alerts/config/basicXmlMap.json",
             "rif": "${fascinator.home}/alerts/config/rifXmlMap.json"
         }
+    },
+    "new-alerts": {
+        "alertSet": [
+            {
+                "name": "Data plans",
+                "path": "${fascinator.home}/test-alerts/dataplan1",
+                "harvestConfig": "${fascinator.home}/harvest/workflows/dmpt.json",
+                "handlers": {
+                    "csv": "CSVAlertHandler"
+                },
+                "CSVAlertHandlerParams": {
+                    "configMap": {
+                        "csv": {
+                            "Dialect": {
+                                "skipinitialspace": true
+                            },
+                            "fieldMap": {
+                                "Title": [
+                                    "title",
+                                    "dc:title"
+                                ],
+                                "Description": [
+                                    "description",
+                                    "dc:description"
+                                ],
+                                "ID": "dc:identifier",
+                                "Start": "dc:coverage.vivo:DateTimeInterval.vivo:start",
+                                "End": "dc:coverage.vivo:DateTimeInterval.vivo:end",
+                                "PI_Given_Name": "locrel:rth.foaf:Person.foaf:givenName",
+                                "PI_Family_Name": "locrel:rth.foaf:Person.foaf:familyName",
+                                "PI_Honorific": "locrel:rth.foaf:Person.foaf:title ",
+                                "PI_Email": "locrel:rth.foaf:Person.foaf:email",
+                                "Supervisor_Given_Name": "swrc:supervisor.foaf:Person.0.foaf:givenName",
+                                "Supervisor_Family_Name": "swrc:supervisor.foaf:Person.0.foaf:familyName",
+                                "Supervisor_Honorific": "swrc:supervisor.foaf:Person.0.foaf:title",
+                                "Supervisor_Email": "swrc:supervisor.foaf:Person.0.foaf:email",
+                                "Staff_ID": "user_id"
+                            }
+                        }
+                    }
+                },
+                "baseline": {
+                    "viewId": "dashboard",
+                    "packageType": "dmpt",
+                    "redbox:formVersion": "1.6.1-SNAPSHOT",
+                    "redbox:newForm": true,
+                    "redbox:submissionProcess.redbox:submitted": true,
+                    "workflow_source": "Default Alert"
+                }
+            }
+        ]
     },
     "watcher": {
         "path": "${watcher.home}"
